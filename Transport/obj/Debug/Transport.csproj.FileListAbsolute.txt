@@ -1,0 +1,8 @@
+/root/Ikn/Exercise_11_csharp/Transport/bin/Debug/Transport.dll
+/root/Ikn/Exercise_11_csharp/Transport/bin/Debug/Transport.pdb
+/root/Ikn/Exercise_11_csharp/Transport/bin/Debug/Link.dll
+/root/Ikn/Exercise_11_csharp/Transport/bin/Debug/Link.pdb
+/root/Ikn/Exercise_11_csharp/Transport/obj/Debug/Transport.csprojResolveAssemblyReference.cache
+/root/Ikn/Exercise_11_csharp/Transport/obj/Debug/Transport.csproj.CoreCompileInputs.cache
+/root/Ikn/Exercise_11_csharp/Transport/obj/Debug/Transport.dll
+/root/Ikn/Exercise_11_csharp/Transport/obj/Debug/Transport.pdb

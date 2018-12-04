@@ -1,0 +1,5 @@
+/root/Ikn/Exercise_11_csharp/Link/bin/Debug/Link.dll
+/root/Ikn/Exercise_11_csharp/Link/bin/Debug/Link.pdb
+/root/Ikn/Exercise_11_csharp/Link/obj/Debug/Link.csproj.CoreCompileInputs.cache
+/root/Ikn/Exercise_11_csharp/Link/obj/Debug/Link.dll
+/root/Ikn/Exercise_11_csharp/Link/obj/Debug/Link.pdb

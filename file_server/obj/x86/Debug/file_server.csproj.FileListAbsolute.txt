@@ -1,0 +1,13 @@
+/root/Ikn/Exercise_11_csharp/file_server/bin/Debug/file_server.exe
+/root/Ikn/Exercise_11_csharp/file_server/bin/Debug/file_server.pdb
+/root/Ikn/Exercise_11_csharp/file_server/bin/Debug/LIB.dll
+/root/Ikn/Exercise_11_csharp/file_server/bin/Debug/Transport.dll
+/root/Ikn/Exercise_11_csharp/file_server/bin/Debug/Link.dll
+/root/Ikn/Exercise_11_csharp/file_server/bin/Debug/Transport.pdb
+/root/Ikn/Exercise_11_csharp/file_server/bin/Debug/LIB.pdb
+/root/Ikn/Exercise_11_csharp/file_server/bin/Debug/LIB.dll.mdb
+/root/Ikn/Exercise_11_csharp/file_server/bin/Debug/Link.pdb
+/root/Ikn/Exercise_11_csharp/file_server/obj/x86/Debug/file_server.csprojResolveAssemblyReference.cache
+/root/Ikn/Exercise_11_csharp/file_server/obj/x86/Debug/file_server.csproj.CoreCompileInputs.cache
+/root/Ikn/Exercise_11_csharp/file_server/obj/x86/Debug/file_server.exe
+/root/Ikn/Exercise_11_csharp/file_server/obj/x86/Debug/file_server.pdb

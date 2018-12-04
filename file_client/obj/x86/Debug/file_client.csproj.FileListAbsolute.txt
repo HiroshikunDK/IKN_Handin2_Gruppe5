@@ -1,0 +1,12 @@
+/root/Ikn/Exercise_11_csharp/file_client/bin/Debug/file_client.exe
+/root/Ikn/Exercise_11_csharp/file_client/bin/Debug/file_client.pdb
+/root/Ikn/Exercise_11_csharp/file_client/bin/Debug/LIB.dll
+/root/Ikn/Exercise_11_csharp/file_client/bin/Debug/Transport.dll
+/root/Ikn/Exercise_11_csharp/file_client/bin/Debug/Link.dll
+/root/Ikn/Exercise_11_csharp/file_client/bin/Debug/LIB.pdb
+/root/Ikn/Exercise_11_csharp/file_client/bin/Debug/LIB.dll.mdb
+/root/Ikn/Exercise_11_csharp/file_client/bin/Debug/Transport.pdb
+/root/Ikn/Exercise_11_csharp/file_client/bin/Debug/Link.pdb
+/root/Ikn/Exercise_11_csharp/file_client/obj/x86/Debug/file_client.csproj.CoreCompileInputs.cache
+/root/Ikn/Exercise_11_csharp/file_client/obj/x86/Debug/file_client.exe
+/root/Ikn/Exercise_11_csharp/file_client/obj/x86/Debug/file_client.pdb
