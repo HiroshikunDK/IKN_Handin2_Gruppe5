@@ -31,10 +31,13 @@ namespace Transportlaget
 		/// The old_seq no.
 		/// </summary>
 		private byte old_seqNo;
-		/// <summary>
-		/// The error count.
-		/// </summary>
-		private int errorCount;
+	    /// The old_ack seq no.
+	    /// </summary>
+	    private byte old_ackSeqNo;
+        /// <summary>
+        /// The error count.
+        /// </summary>
+        private int errorCount;
 		/// <summary>
 		/// The DEFAULT_SEQNO.
 		/// </summary>
@@ -60,6 +63,7 @@ namespace Transportlaget
 			old_seqNo = DEFAULT_SEQNO;
 			errorCount = 0;
 			dataReceived = false;
+		    old_ackSeqNo = DEFAULT_SEQNO;
 		}
 
 		/// <summary>
@@ -106,7 +110,7 @@ namespace Transportlaget
 		/// <summary>
 		/// Send the specified buffer and size.
 		/// </summary>
-		/// <param name='buffer'>
+		/// <param name='buf'>
 		/// Buffer.
 		/// </param>
 		/// <param name='size'>
@@ -114,21 +118,60 @@ namespace Transportlaget
 		/// </param>
 		public void send(byte[] buf, int size)
 		{
-			// TO DO Your own code
-			link.send(buf, size);
+		    if (old_seqNo != 0)
+		    {
+		        seqNo = 0;
+            }
+		    else
+		    {
+		        seqNo = 1;
+            }
+		    buffer[(int)TransCHKSUM.SEQNO] = seqNo;
+            buffer[(int) TransCHKSUM.TYPE] = 0;
+
+		    Array.Copy(buf, 0, buffer, 4, buf.Length);
+
+            checksum.calcChecksum(ref buffer, buffer.Length);
+
+            //buffer now contains header + payload
+
+            while (errorCount < 5 && !dataReceived)
+		    {
+		        link.send(buffer, buffer.Length);
+		        if (!receiveAck())
+		        {
+		            errorCount++;
+		        }
+		    }
+
+		    dataReceived = false;
+		    old_seqNo = seqNo;
+		    errorCount = 0;
 		}
 
 		/// <summary>
 		/// Receive the specified buffer.
 		/// </summary>
-		/// <param name='buffer'>
+		/// <param name='buf'>
 		/// Buffer.
 		/// </param>
 		public int receive (ref byte[] buf)
 		{
-			// TO DO Your own code
-			int size = link.receive(ref buf);
-			return size;
+		    bool checksumValidation = false;
+		    int size= 0;
+		    while (!checksumValidation)
+		    {
+                size = link.receive(ref buf);
+		        checksumValidation = checksum.checkChecksum(buf, buf.Length);
+                sendAck(checksumValidation);
+		    }
+
+		    if (buf[(int) TransCHKSUM.SEQNO] == old_ackSeqNo)
+		    {
+		        return 0;
+		    }
+
+		    return size;
 		}
 	}
 }
