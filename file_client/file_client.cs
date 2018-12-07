@@ -1,4 +1,5 @@
 using System;
+using System.Collections.Generic;
 using System.IO;
 using System.Text;
 using Transportlaget;
@@ -28,22 +29,53 @@ namespace Application
 		/// </param>
 	    private file_client(String[] args)
 	    {
-	    	// TO DO Your own code
-	    }
 
-		/// <summary>
-		/// Receives the file.
-		/// </summary>
-		/// <param name='fileName'>
-		/// File name.
-		/// </param>
-		/// <param name='transport'>
-		/// Transportlaget
-		/// </param>
-		private void receiveFile (String fileName, Transport transport)
+            // TO DO Your own code
+	        Transport transport = new Transport(BUFSIZE, APP);
+	        byte[] buffer = new byte[BUFSIZE];
+            Console.WriteLine(" >> Client connecting");
+            buffer = Encoding.ASCII.GetBytes(args[0]);
+            transport.send(buffer, buffer.Length);
+
+	        long size = transport.receive(ref buffer);
+            if (size != 0)
+            {
+                string fileName = LIB.extractFileName(args[0]);
+                receiveFile(fileName, transport, size);
+            }
+            else
+            {
+                Console.WriteLine(transport.receive(ref buffer));
+            }
+        }
+
+        /// <summary>
+        /// Receives the file.
+        /// </summary>
+        /// <param name='fileName'>
+        /// File name.
+        /// </param>
+        /// <param name='transport'>
+        /// Transportlaget
+        /// </param>
+        private void receiveFile (String fileName, Transport transport, long fileSize)
 		{
-			// TO DO Your own code
-		}
+		    // TO DO Your own code
+		    Console.WriteLine(" >> Recieving file");
+		    FileStream fileStream = File.Create("/root/Desktop/IKN/" + fileName);
+		    byte[] recieveBytes = new byte[BUFSIZE];
+		    int readBytes = 0;
+		    while (readBytes < fileSize)
+		    {
+		        readBytes += transport.receive(ref recieveBytes);
+
+		        Console.WriteLine(" >> Read bytes: " + readBytes.ToString());
+		    }
+
+		    fileStream.Write(recieveBytes, 0, (int)fileSize);
+
+		    fileStream.Close();
+        }
 
 		/// <summary>
 		/// The entry point of the program, where the program control starts and ends.
@@ -53,7 +85,8 @@ namespace Application
 		/// </param>
 		public static void Main (string[] args)
 		{
-			new file_client(args);
+		    Console.WriteLine("Client starts...");
+            new file_client(args);
 		}
 	}
 }
