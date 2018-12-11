@@ -10,3 +10,15 @@
 /root/Ikn/Exercise_11_csharp/file_client/obj/x86/Debug/file_client.csproj.CoreCompileInputs.cache
 /root/Ikn/Exercise_11_csharp/file_client/obj/x86/Debug/file_client.exe
 /root/Ikn/Exercise_11_csharp/file_client/obj/x86/Debug/file_client.pdb
+/root/Desktop/IKN/oevelse11/IKN_Handin2_Gruppe5/file_client/bin/Debug/file_client.exe
+/root/Desktop/IKN/oevelse11/IKN_Handin2_Gruppe5/file_client/bin/Debug/file_client.pdb
+/root/Desktop/IKN/oevelse11/IKN_Handin2_Gruppe5/file_client/bin/Debug/LIB.dll
+/root/Desktop/IKN/oevelse11/IKN_Handin2_Gruppe5/file_client/bin/Debug/Transport.dll
+/root/Desktop/IKN/oevelse11/IKN_Handin2_Gruppe5/file_client/bin/Debug/Link.dll
+/root/Desktop/IKN/oevelse11/IKN_Handin2_Gruppe5/file_client/bin/Debug/LIB.pdb
+/root/Desktop/IKN/oevelse11/IKN_Handin2_Gruppe5/file_client/bin/Debug/LIB.dll.mdb
+/root/Desktop/IKN/oevelse11/IKN_Handin2_Gruppe5/file_client/bin/Debug/Transport.pdb
+/root/Desktop/IKN/oevelse11/IKN_Handin2_Gruppe5/file_client/bin/Debug/Link.pdb
+/root/Desktop/IKN/oevelse11/IKN_Handin2_Gruppe5/file_client/obj/x86/Debug/file_client.csproj.CoreCompileInputs.cache
+/root/Desktop/IKN/oevelse11/IKN_Handin2_Gruppe5/file_client/obj/x86/Debug/file_client.exe
+/root/Desktop/IKN/oevelse11/IKN_Handin2_Gruppe5/file_client/obj/x86/Debug/file_client.pdb

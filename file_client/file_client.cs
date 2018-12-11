@@ -62,7 +62,7 @@ namespace Application
 		{
 		    // TO DO Your own code
 		    Console.WriteLine(" >> Recieving file");
-		    FileStream fileStream = File.Create("/root/Desktop/IKN/" + fileName);
+		    FileStream fileStream = File.Create("/root/Desktop/IKN/Exercise11" + fileName);
 		    byte[] recieveBytes = new byte[BUFSIZE];
 		    int readBytes = 0;
 		    while (readBytes < fileSize)
