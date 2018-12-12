@@ -118,6 +118,7 @@ namespace Transportlaget
 		/// </param>
 		public void send(byte[] buf, int size)
 		{
+			Console.WriteLine("Transport send kaldt");
 		    if (old_seqNo != 0)
 		    {
 		        seqNo = 0;
@@ -147,6 +148,7 @@ namespace Transportlaget
 		    dataReceived = false;
 		    old_seqNo = seqNo;
 		    errorCount = 0;
+			Console.WriteLine("Transport send done");
 		}
 
 		/// <summary>
@@ -157,20 +159,25 @@ namespace Transportlaget
 		/// </param>
 		public int receive (ref byte[] buf)
 		{
+			Console.WriteLine("Transport rec kaldt");
 		    bool checksumValidation = false;
 		    int size= 0;
+			byte[] tempBuf = new byte[buf.Length + (int)TransSize.ACKSIZE];
 		    while (!checksumValidation)
 		    {
-                size = link.receive(ref buf);
-		        checksumValidation = checksum.checkChecksum(buf, buf.Length);
+                size = link.receive(ref tempBuf);
+		        checksumValidation = checksum.checkChecksum(tempBuf, tempBuf.Length);
                 sendAck(checksumValidation);
 		    }
 
-		    if (buf[(int) TransCHKSUM.SEQNO] == old_ackSeqNo)
+		    if (tempBuf[(int) TransCHKSUM.SEQNO] == old_ackSeqNo)
 		    {
 		        return 0;
 		    }
 
+			Array.Copy(tempBuf, (int)TransSize.ACKSIZE, buf, 0, buf.Length);
+
+			Console.WriteLine("Transport rec done");
 		    return size;
 		}
 	}

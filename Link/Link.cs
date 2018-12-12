@@ -69,6 +69,7 @@ namespace Linklaget
 		public void send (byte[] buf, int size)
 		{
 			// TO DO Your own code
+			Console.WriteLine("Link send kaldt");
 			buffer[0] = (byte)'A';
 			int location = 1;
 			for (int i = 0; i < size;i++)
@@ -92,7 +93,12 @@ namespace Linklaget
 				}
 			}
 			buffer[location] = (byte)'A';
+
+			//Console.WriteLine($"send buffer length: {buffer.Length}");
+
 			serialPort.Write(buffer, 0, buffer.Length);
+			Array.Clear(buffer, 0, buffer.Length);
+			Console.WriteLine("Link send done");
 		}
 
 		/// <summary>
@@ -106,10 +112,81 @@ namespace Linklaget
 		/// </param>
 		public int receive (ref byte[] buf)
 		{
-			// TO DO Your own code
-			int readBytes = 0;
+			Console.WriteLine("Link rec kaldt");
+
+			//Console.WriteLine($"receive buf length: {buf.Length}");
+
+			byte b;
+			do
+			{
+				b = (byte) serialPort.ReadByte();
+			} while (b != 'A');
+
+			int i = 0;
+
+			do
+			{
+				b = (byte)serialPort.ReadByte();
+				buffer[i] = b;
+				i++;
+			} while (b != 'A');
+
+			int n = 0;
+
+			/*for (i = 0; i < buffer.Length; i++)
+			{
+				if (buffer[i] == (byte)'B' && buffer[i + 1] == (byte)'C')
+                {
+                    buffer[i] = (byte)'A';
+                    i++;
+                }
+                else if (buffer[i] == (byte)'B' && buffer[i + 1] == (byte)'D')
+                {
+                    buf[n - 1] = (byte)'B';
+                    i++;
+                }
+			}*/
+
+			Console.WriteLine($" recieve buffer length: {buffer.Length}");
+
+			for (i = 0; i < buffer.Length; i++)
+			{
+				//Console.WriteLine($"i: {i}");
+				//Console.WriteLine($"n: {n}");
+				if (buffer[i] == (byte)'B' && buffer[i+1] == (byte)'C')
+                {
+                    buf[n] = (byte)'A';
+					i++;
+                }
+				else if (buffer[i] == (byte)'B' && buffer[i+1] == (byte)'D')
+                {   
+                    buf[n] = (byte)'B';
+					i++;
+                }
+				else
+				{
+					buf[n] = buffer[i];
+				}
+				n++;
+			}
+			Console.WriteLine("Link rec done");
+			return n;
+            
+
+
+
+
+
+			/*int readBytes = 0;
 			int writtenBytes = 0;
 			int aCount = 0;
+
+			while(buffer[0] != 'A')
+			{
+				serialPort.Read(buffer, 0, 1);
+			}
+			aCount++;
+
 			while(aCount < 2)
 			{
 				serialPort.Read(buffer, readBytes, 1);
@@ -134,7 +211,8 @@ namespace Linklaget
 				}
 				readBytes++;
 			}
-			return writtenBytes;
+			Array.Clear(buffer, 0, buffer.Length);
+			return writtenBytes;*/
 		}
 	}
 }
