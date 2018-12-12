@@ -1,11 +1,16 @@
 ﻿<Properties StartupConfiguration="{DB485B50-5258-42F1-ABC9-2774EEE3360F}|Default">
-  <MonoDevelop.Ide.Workbench ActiveDocument="Transport/Transport.cs">
+  <MonoDevelop.Ide.Workbench ActiveDocument="Test/LinkTestSender.cs">
     <Files>
-      <File FileName="file_client/file_client.cs" Line="30" Column="40" />
-      <File FileName="Transport/Transport.cs" Line="163" Column="8" />
-      <File FileName="Link/Link.cs" Line="113" Column="11" />
-      <File FileName="file_server/file_server.cs" Line="24" Column="47" />
+      <File FileName="file_client/file_client.cs" Line="105" Column="2" />
+      <File FileName="Transport/Transport.cs" Line="114" Column="34" />
+      <File FileName="Link/Link.cs" Line="53" Column="31" />
+      <File FileName="file_server/file_server.cs" Line="104" Column="2" />
       <File FileName="Transport/TransConst.cs" Line="1" Column="1" />
+      <File FileName="LIB/LIB.cs" Line="38" Column="4" />
+      <File FileName="LIB/AssemblyInfo.cs" Line="1" Column="1" />
+      <File FileName="Transport/Checksum.cs" Line="1" Column="1" />
+      <File FileName="TestRec/LinkTestRecieve.cs" Line="31" Column="2" />
+      <File FileName="Test/LinkTestSender.cs" Line="26" Column="37" />
     </Files>
   </MonoDevelop.Ide.Workbench>
   <MonoDevelop.Ide.Workspace ActiveConfiguration="Debug|x86" />
